@@ -39,8 +39,8 @@ The TestNG report will be generated into the file:
 ```
 #### Relevant Documentation
 ```
-[Bug Report](./BUG_REPORT.md)
+[Bug Report](BUG_REPORT.md)
 ```
 ```
-[Coverage Report](./COVERAGE_REPORT.md)
+[Coverage Report](COVERAGE_REPORT.md)
 ```
