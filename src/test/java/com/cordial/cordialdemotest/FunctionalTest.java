@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import static com.cordial.cordialdemotest.util.Commons.supplyIntegersListOfSize;
 import static org.testng.Assert.assertEquals;
 
-@Test(groups = "func", dependsOnGroups = "smoke")
+@Test(groups = "func")
 public class FunctionalTest extends RestApiTestStarter {
 	@Test(priority = 1, dataProvider = "notOrderedDp")
 	public void whenRandomOrderThenSortedOutput(Object[] payload) {

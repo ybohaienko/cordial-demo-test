@@ -38,11 +38,11 @@ public class RestApiTestStarter extends AbstractTestNGSpringContextTests {
 
 	private Response postPayload(List<?> payload) {
 		JSONObject requestBody = createRequestBody(payload);
-		return given().
-				contentType(ContentType.JSON).
-				when().
-				body(requestBody.toString()).
-				post(baseApiUrl);
+		return given()
+				.contentType(ContentType.JSON)
+				.when()
+				.body(requestBody.toString())
+				.post(baseApiUrl);
 	}
 
 	private JSONObject createRequestBody(List testDataSet) {

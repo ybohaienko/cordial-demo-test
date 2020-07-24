@@ -25,9 +25,9 @@ mvn clean install -Dsurefire.test.skip=true -Dfailsafe.test.skip=true
  - To run only one group tests add to the `mvn` command `-Dgroups=<groupName>`;
  
 #### Test groups list by modules:
- - "Smoke" - smoke tests to start with - `-Dgroups=rm-pipeline` 
- - "Func" - functional tests - `-Dgroups=rm` 
- - "Load" - performance tests - `-Dgroups=nlp`
+ - "smoke" - smoke tests to start with - `-Dgroups=smoke` 
+ - "func" - functional tests - `-Dgroups=func` 
+ - "load" - performance tests - `-Dgroups=load`
  
 ### Ports exposed by component
 The component does not need to be exposed
@@ -35,5 +35,5 @@ The component does not need to be exposed
 ### Service Endpoints
 The TestNG report will be generated into file:
 ```
-[target/surefire-reports/index.html](../target/surefire-reports/index.html)
+../target/surefire-reports/index.html
 ```
