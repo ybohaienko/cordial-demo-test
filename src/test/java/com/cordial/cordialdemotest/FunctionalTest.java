@@ -101,7 +101,8 @@ public class FunctionalTest extends RestApiTestStarter {
 	public void whenBigDecimalsPayloadThenSortPass() {
 		List<BigDecimal> payload = supplyBigDecimalsListOfSize(3).stream()
 				.sorted(Comparator.reverseOrder())
-				.collect(Collectors.toList());;
+				.collect(Collectors.toList());
+		;
 		List<Object> expectedSortedPayload = payload.stream()
 				.sorted()
 				.collect(Collectors.toList());
@@ -145,7 +146,7 @@ public class FunctionalTest extends RestApiTestStarter {
 	@DataProvider
 	public Object[][] dataTypesDp() {
 		return new Object[][]{
-				{new Object[]{true, 1, -1, false}, new Object[]{false, -1, 1, true,}},
+				{new Object[]{true, false, true}, new Object[]{false, true, true}},
 				{new Object[]{"c", "a", "b"}, new Object[]{"c", "a", "b"}},
 				{new Object[]{null, 0, false}, new Object[]{null, 0, false}},
 				{new Object[]{new ArrayList<>(), 0, new ArrayList<>()}, new Object[]{0, new ArrayList<>(), new ArrayList<>()}},

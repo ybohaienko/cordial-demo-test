@@ -56,8 +56,8 @@ public class PerformanceTest extends RestApiTestStarter {
 	}
 
 	@Test(priority = 4)
-	public void when100KBigIntegersPayloadThenSortPass() {
-		List<BigInteger> payload = supplyBigIntegersListOfSize(100_000).stream()
+	public void when1KBigIntegersPayloadThenSortPass() {
+		List<BigInteger> payload = supplyBigIntegersListOfSize(1_000).stream()
 				.sorted(Comparator.reverseOrder())
 				.collect(Collectors.toList());
 		List<Object> expectedSortedPayload = payload.stream()

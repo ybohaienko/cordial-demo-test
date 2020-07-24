@@ -32,8 +32,15 @@ mvn clean install -Dsurefire.test.skip=true -Dfailsafe.test.skip=true
 ### Ports exposed by component
 The component does not need to be exposed
  
-### Service Endpoints
-The TestNG report will be generated into file:
+### Service Endpoints and Artifacts
+The TestNG report will be generated into the file:
 ```
 ../target/surefire-reports/index.html
+```
+#### Relevant Documentation
+```
+[Bug Report](../BUG_REPORT.md)
+```
+```
+[Coverage Report](../COVERAGE_REPORT.md)
 ```
