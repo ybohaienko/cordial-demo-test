@@ -8,7 +8,7 @@ REST API automated tests demo for Cordial.com
 ## Build
 - Clone project
 ```
-git clone https://gitlab.1touch.corp/qa/e2e-tests.git
+git clone https://github.com/ybohaienko/cordial-demo-test.git
 ```
 - Run command
 ```
