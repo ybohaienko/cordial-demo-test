@@ -1,21 +1,27 @@
 ## Coverage Report
-#### Executed successfully tests: 28 (74%)
+#### Executed successfully tests: 30 (75%)
 #### Failed tests: 2 (5%)
-#### Omitted tests: 8 (21%)
+#### Omitted tests: 8 (20%)
  
 ### The tests were divided into three groups:
 #### 1. Smoke
 - Simple tests to check the basic functionality of the service.
 - Executes at the start of the test run.
 - Consists of 2 tests.
-#### 2. Func
+#### 2. Schema
+- Test to check the JSON schema of the response body.
+- Executes at the start of the test run.
+- Consists of 1 test.
+#### 3. Func
 - Functional tests to check the functionality of the service in positive as well as negative ways.
 - Executes after the 'smoke' group.
 - Consists of 21 tests.
-#### 3. Load
+#### 4. Load
 - Performance tests to check the functionality of the service under high load using a big amount of data. 
 - Executes at the end of the test run as the heaviest in time. 
 - Consists of 6 tests.
+
+#### Failed tests are commented within the code and marked by 'TODO' notation.
 
 #### Some of test cases were omitted as of less priority:
 ##### 1. Check sorting output of data set of different data type values:

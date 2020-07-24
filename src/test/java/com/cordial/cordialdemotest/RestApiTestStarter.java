@@ -21,14 +21,14 @@ public class RestApiTestStarter extends AbstractTestNGSpringContextTests {
 	@Value("${cordial.api.url}")
 	private String baseApiUrl;
 
-	List<Object> postPayloadOutputList(List<?> payload) {
+	protected List<Object> postPayloadOutputList(List<?> payload) {
 		return postPayloadOutputList(payload, HttpStatus.SC_OK)
 				.body()
 				.jsonPath()
 				.getList("numbers");
 	}
 
-	Response postPayloadOutputList(List<?> payload, int statusCode) {
+	protected Response postPayloadOutputList(List<?> payload, int statusCode) {
 		Response response = postPayload(payload);
 		assertEquals(response.statusCode(), statusCode,
 				"Response status code in not as expected\n" +
@@ -36,7 +36,7 @@ public class RestApiTestStarter extends AbstractTestNGSpringContextTests {
 		return response;
 	}
 
-	private Response postPayload(List<?> payload) {
+	protected Response postPayload(List<?> payload) {
 		JSONObject requestBody = createRequestBody(payload);
 		return given()
 				.contentType(ContentType.JSON)
@@ -46,16 +46,6 @@ public class RestApiTestStarter extends AbstractTestNGSpringContextTests {
 	}
 
 	private JSONObject createRequestBody(List testDataSet) {
-		JSONObject requestBody = new JSONObject();
-		try {
-			requestBody.put("numbers", new JSONArray(testDataSet));
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		return requestBody;
-	}
-
-	private JSONObject createRequestBody(Object[] testDataSet) {
 		JSONObject requestBody = new JSONObject();
 		try {
 			requestBody.put("numbers", new JSONArray(testDataSet));

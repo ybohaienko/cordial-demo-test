@@ -1,5 +1,6 @@
-package com.cordial.cordialdemotest;
+package com.cordial.cordialdemotest.sorting;
 
+import com.cordial.cordialdemotest.RestApiTestStarter;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 

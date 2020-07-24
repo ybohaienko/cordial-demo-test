@@ -1,5 +1,6 @@
-package com.cordial.cordialdemotest;
+package com.cordial.cordialdemotest.sorting;
 
+import com.cordial.cordialdemotest.RestApiTestStarter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -16,7 +17,7 @@ import static org.testng.Assert.assertEquals;
 
 @Test(groups = "func")
 public class FunctionalTest extends RestApiTestStarter {
-	@Test(priority = 1, dataProvider = "notOrderedDp")
+	@Test(priority = 1, dataProvider = "notOrderedDp", dependsOnGroups = "smoke")
 	public void whenRandomOrderedThenSortedOutput(Object[] payload) {
 		List<Object> actual = postPayloadOutputList(Arrays.asList(payload));
 		List<Object> expected = Arrays.stream(payload)
@@ -102,7 +103,6 @@ public class FunctionalTest extends RestApiTestStarter {
 		List<BigDecimal> payload = supplyBigDecimalsListOfSize(3).stream()
 				.sorted(Comparator.reverseOrder())
 				.collect(Collectors.toList());
-		;
 		List<Object> expectedSortedPayload = payload.stream()
 				.sorted()
 				.collect(Collectors.toList());

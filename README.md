@@ -18,7 +18,7 @@ mvn clean install -Dsurefire.test.skip=true -Dfailsafe.test.skip=true
 ## Run
 - To run tests execute in parent dir:
  ```
- mvn clean install <OPTIONS>
+ mvn test <OPTIONS>
  ```
 #### Run options:
  - To run all tests just run the `mvn` command without options;
@@ -26,6 +26,7 @@ mvn clean install -Dsurefire.test.skip=true -Dfailsafe.test.skip=true
  
 #### Test groups list by modules:
  - "smoke" - smoke tests to start with - `-Dgroups=smoke` 
+ - "schema" - JSON schema tests - `-Dgroups=schema`
  - "func" - functional tests - `-Dgroups=func` 
  - "load" - performance tests - `-Dgroups=load`
  
