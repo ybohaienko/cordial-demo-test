@@ -1,12 +1,12 @@
 package com.cordial.cordialdemotest.util;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Commons {
 	public static List<Integer> supplyIntegersListOfSize(int size) {
@@ -21,17 +21,15 @@ public class Commons {
 				.collect(Collectors.toList());
 	}
 
-//	public static List<BigInteger> supply() {
-//
-//
-//		BigInteger randomInteger = new BigInteger(1024, new Random());
-//
-//		System.out.println(randomInteger);
-//	}
+	public static List<BigInteger> supplyBigIntegersListOfSize(int size) {
+		return IntStream.range(0, size)
+				.mapToObj(e -> new BigInteger(1024, new Random()))
+				.collect(Collectors.toList());
+	}
 
-	List <BigInteger> getList(int numOfElements){
-		return IntStream.range(0, numOfElements)
-				.mapToObj(e -> new BigInteger(1024, new Random())) // or x -> new Object(x).. or any other constructor
+	public static List<BigDecimal> supplyBigDecimalsListOfSize(int size) {
+		return IntStream.range(0, size)
+				.mapToObj(e -> new BigDecimal(new BigInteger(1024, new Random()), 512))
 				.collect(Collectors.toList());
 	}
 }

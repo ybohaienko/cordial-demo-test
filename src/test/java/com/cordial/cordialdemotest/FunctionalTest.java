@@ -3,18 +3,21 @@ package com.cordial.cordialdemotest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.cordial.cordialdemotest.util.Commons.supplyIntegersListOfSize;
+import static com.cordial.cordialdemotest.util.Commons.*;
 import static org.testng.Assert.assertEquals;
 
 @Test(groups = "func")
 public class FunctionalTest extends RestApiTestStarter {
 	@Test(priority = 1, dataProvider = "notOrderedDp")
-	public void whenRandomOrderThenSortedOutput(Object[] payload) {
+	public void whenRandomOrderedThenSortedOutput(Object[] payload) {
 		List<Object> actual = postPayloadOutputList(Arrays.asList(payload));
 		List<Object> expected = Arrays.stream(payload)
 				.sorted()
@@ -36,8 +39,8 @@ public class FunctionalTest extends RestApiTestStarter {
 		};
 	}
 
-	@Test(priority = 2, dataProvider = "notOrderedFloatDp")
-	public void whenRandomOrderFloatThenSortedOutput(Object[] payload) {
+	@Test(priority = 2, dataProvider = "notOrderedFloatsDp")
+	public void whenRandomOrderFloatsThenSortedOutput(Object[] payload) {
 		List<Object> actual = postPayloadOutputList(Arrays.asList(payload));
 		List<Object> expected = Arrays.stream(payload)
 				.sorted()
@@ -46,7 +49,7 @@ public class FunctionalTest extends RestApiTestStarter {
 	}
 
 	@DataProvider
-	public Object[][] notOrderedFloatDp() {
+	public Object[][] notOrderedFloatsDp() {
 		return new Object[][]{
 				{new Object[]{0.1f, 0.3f, 0.2f}},
 				{new Object[]{0.1f, 0.01f, 0.001f}},
@@ -60,7 +63,7 @@ public class FunctionalTest extends RestApiTestStarter {
 	}
 
 	@Test(priority = 3)
-	public void whenFloatWithZeroThenIntegerOutput() {
+	public void whenFloatsWithZeroThenIntegerOutput() {
 		Object[] payload = new Object[]{0.0f, 1.0f, 1000.0f};
 		List<Object> actual = postPayloadOutputList(Arrays.asList(payload));
 		List<Object> expected = Arrays.asList(new Object[]{0, 1, 1000});
@@ -68,7 +71,7 @@ public class FunctionalTest extends RestApiTestStarter {
 	}
 
 	@Test(priority = 3)
-	public void whenLongFloatThenExponentialFloatOutput() {
+	public void whenLongFloatsThenExponentialFloatOutput() {
 		Object[] payload = new Object[]{0.00000000001, 0.000000000001, 0.0000000000001};
 		List<Object> actual = postPayloadOutputList(Arrays.asList(payload));
 		List<Object> expected = Arrays.stream(payload)
@@ -76,6 +79,38 @@ public class FunctionalTest extends RestApiTestStarter {
 				.map(e -> e = Float.parseFloat(e.toString()))
 				.collect(Collectors.toList());
 		assertEquals(actual, expected);
+	}
+
+	@Test(priority = 3)
+	public void whenBigIntegersThenSortedOutput() {
+		List<BigInteger> payload = supplyBigIntegersListOfSize(3).stream()
+				.sorted(Comparator.reverseOrder())
+				.collect(Collectors.toList());
+		List<Object> expectedSortedPayload = payload.stream()
+				.sorted()
+				.collect(Collectors.toList());
+
+		List<BigInteger> actual = postPayloadOutputList(payload)
+				.stream()
+				.map(e -> new BigInteger(e.toString()))
+				.collect(Collectors.toList());
+		assertEquals(actual, expectedSortedPayload);
+	}
+
+	@Test(priority = 3)
+	public void whenBigDecimalsPayloadThenSortPass() {
+		List<BigDecimal> payload = supplyBigDecimalsListOfSize(3).stream()
+				.sorted(Comparator.reverseOrder())
+				.collect(Collectors.toList());;
+		List<Object> expectedSortedPayload = payload.stream()
+				.sorted()
+				.collect(Collectors.toList());
+
+		List<BigDecimal> actual = postPayloadOutputList(payload)
+				.stream()
+				.map(e -> new BigDecimal(e.toString()))
+				.collect(Collectors.toList());
+		assertEquals(actual, expectedSortedPayload);
 	}
 
 	@Test(priority = 4)
