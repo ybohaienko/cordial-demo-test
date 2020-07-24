@@ -38,9 +38,6 @@ The TestNG report will be generated into the file:
 ../target/surefire-reports/index.html
 ```
 #### Relevant Documentation
-```
-[Bug Report](BUG_REPORT.md)
-```
-```
-[Coverage Report](COVERAGE_REPORT.md)
-```
+- [Bug Report](./BUG_REPORT.md)
+- [Coverage Report](./COVERAGE_REPORT.md)
+
