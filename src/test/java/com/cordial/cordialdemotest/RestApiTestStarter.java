@@ -20,12 +20,13 @@ public class RestApiTestStarter extends AbstractTestNGSpringContextTests {
 
 	@Value("${cordial.api.url}")
 	private String baseApiUrl;
+	private final String NUMBERS_ARRAY_PATH = "numbers";
 
 	protected List<Object> postPayloadOutputList(List<?> payload) {
 		return postPayloadOutputList(payload, HttpStatus.SC_OK)
 				.body()
 				.jsonPath()
-				.getList("numbers");
+				.getList(NUMBERS_ARRAY_PATH);
 	}
 
 	protected Response postPayloadOutputList(List<?> payload, int statusCode) {
@@ -48,7 +49,7 @@ public class RestApiTestStarter extends AbstractTestNGSpringContextTests {
 	private JSONObject createRequestBody(List testDataSet) {
 		JSONObject requestBody = new JSONObject();
 		try {
-			requestBody.put("numbers", new JSONArray(testDataSet));
+			requestBody.put(NUMBERS_ARRAY_PATH, new JSONArray(testDataSet));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
