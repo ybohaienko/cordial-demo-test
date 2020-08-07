@@ -1,4 +1,4 @@
-package com.sorting.sortingdemotest;
+package com.sorting.demotest;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

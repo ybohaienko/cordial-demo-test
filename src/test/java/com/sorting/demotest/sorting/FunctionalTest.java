@@ -1,6 +1,7 @@
-package com.sorting.sortingdemotest.sorting;
+package com.sorting.demotest.sorting;
 
-import com.sorting.sortingdemotest.RestApiTestStarter;
+import com.sorting.demotest.RestApiTestStarter;
+import com.sorting.demotest.util.Commons;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,7 +13,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.sorting.sortingdemotest.util.Commons.*;
 import static org.testng.Assert.assertEquals;
 
 @Test(groups = "func")
@@ -84,7 +84,7 @@ public class FunctionalTest extends RestApiTestStarter {
 
 	@Test(priority = 3)
 	public void whenBigIntegersThenSortedOutput() {
-		List<BigInteger> payload = supplyBigIntegersListOfSize(3).stream()
+		List<BigInteger> payload = Commons.supplyBigIntegersListOfSize(3).stream()
 				.sorted(Comparator.reverseOrder())
 				.collect(Collectors.toList());
 		List<Object> expectedSortedPayload = payload.stream()
@@ -100,7 +100,7 @@ public class FunctionalTest extends RestApiTestStarter {
 
 	@Test(priority = 3)
 	public void whenBigDecimalsPayloadThenSortPass() {
-		List<BigDecimal> payload = supplyBigDecimalsListOfSize(3).stream()
+		List<BigDecimal> payload = Commons.supplyBigDecimalsListOfSize(3).stream()
 				.sorted(Comparator.reverseOrder())
 				.collect(Collectors.toList());
 		List<Object> expectedSortedPayload = payload.stream()
@@ -116,7 +116,7 @@ public class FunctionalTest extends RestApiTestStarter {
 
 	@Test(priority = 4)
 	public void whenOneInDataSetThenEmptyOutput() {
-		List<Integer> payload = supplyIntegersListOfSize(1);
+		List<Integer> payload = Commons.supplyIntegersListOfSize(1);
 		int expectedSize = 0;
 
 		assertEquals(

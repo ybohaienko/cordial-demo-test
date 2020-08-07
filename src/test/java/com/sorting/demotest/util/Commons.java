@@ -1,4 +1,4 @@
-package com.sorting.sortingdemotest.util;
+package com.sorting.demotest.util;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
