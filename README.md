@@ -1,6 +1,6 @@
-# cordial-demo-test
+# sorting-demo-test
  
-REST API automated tests demo for Cordial.com
+REST API automated tests demo for sorting.com
  
 ### Prerequisites
 * **JDK = 1.8.0_x**;
@@ -8,7 +8,7 @@ REST API automated tests demo for Cordial.com
 ## Build
 - Clone project
 ```
-git clone https://github.com/ybohaienko/cordial-demo-test.git
+git clone https://github.com/ybohaienko/sorting-demo-test.git
 ```
 - Run command
 ```

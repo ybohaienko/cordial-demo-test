@@ -1,6 +1,6 @@
-package com.cordial.cordialdemotest.sorting;
+package com.sorting.sortingdemotest.sorting;
 
-import com.cordial.cordialdemotest.RestApiTestStarter;
+import com.sorting.sortingdemotest.RestApiTestStarter;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.cordial.cordialdemotest.util.Commons.*;
+import static com.sorting.sortingdemotest.util.Commons.*;
 import static org.testng.Assert.assertEquals;
 
 @Test(groups = "load")

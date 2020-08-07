@@ -1,6 +1,6 @@
-package com.cordial.cordialdemotest.sorting;
+package com.sorting.sortingdemotest.sorting;
 
-import com.cordial.cordialdemotest.RestApiTestStarter;
+import com.sorting.sortingdemotest.RestApiTestStarter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.cordial.cordialdemotest.util.Commons.*;
+import static com.sorting.sortingdemotest.util.Commons.*;
 import static org.testng.Assert.assertEquals;
 
 @Test(groups = "func")
@@ -35,7 +35,7 @@ public class FunctionalTest extends RestApiTestStarter {
 				{new Object[]{1, 2, 3}},
 				{new Object[]{0, 1, 1_000}},
 //				TODO: fix bug (QA-1) and uncomment
-//				{new Object[]{1, -1, 0}},
+				{new Object[]{1, -1, 0}},
 				{new Object[]{-2, -1, -1_000}},
 		};
 	}
@@ -57,7 +57,7 @@ public class FunctionalTest extends RestApiTestStarter {
 				{new Object[]{1.99999f, 1.9999f, 1.999f}},
 				{new Object[]{0.001f, 1.001f, 1_000.001f}},
 //				TODO: fix bug (QA-1) and uncomment
-//				{new Object[]{0.0f, 0.1f, -0.1f}},
+				{new Object[]{0.0f, 0.1f, -0.1f}},
 				{new Object[]{-1.1f, -0.1f, -2.1f}},
 				{new Object[]{-10.1f, -1.1f, -1_000.1f}},
 		};

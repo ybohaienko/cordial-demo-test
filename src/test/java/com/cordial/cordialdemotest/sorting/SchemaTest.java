@@ -1,12 +1,12 @@
-package com.cordial.cordialdemotest.sorting;
+package com.sorting.sortingdemotest.sorting;
 
-import com.cordial.cordialdemotest.RestApiTestStarter;
+import com.sorting.sortingdemotest.RestApiTestStarter;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static com.cordial.cordialdemotest.util.Commons.supplyIntegersListOfSize;
+import static com.sorting.sortingdemotest.util.Commons.supplyIntegersListOfSize;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 @Test(groups = "schema")

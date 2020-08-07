@@ -1,4 +1,4 @@
-package com.cordial.cordialdemotest;
+package com.sorting.sortingdemotest;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -18,7 +18,7 @@ import static org.testng.Assert.assertEquals;
 @SpringBootTest
 public class RestApiTestStarter extends AbstractTestNGSpringContextTests {
 
-	@Value("${cordial.api.url}")
+	@Value("${sorting.api.url}")
 	private String baseApiUrl;
 	private final String NUMBERS_ARRAY_PATH = "numbers";
 
